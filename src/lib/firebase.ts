@@ -1,6 +1,11 @@
 import { initializeApp } from 'firebase/app'
 import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'firebase/app-check'
-import { AgentPlatformBackend, getAI, getTemplateGenerativeModel } from 'firebase/ai'
+import {
+  AgentPlatformBackend,
+  getAI,
+  getTemplateGenerativeModel,
+  type TemplateGenerativeModel,
+} from 'firebase/ai'
 
 export type ChatTurn = { role: 'user' | 'model'; contents: string }
 
@@ -15,36 +20,49 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
-export const app = initializeApp(firebaseConfig)
+let model: TemplateGenerativeModel | undefined
 
-// App Check proves requests come from this app, so nobody can reuse the config
-// above to spend your Gemini quota. On localhost, reCAPTCHA can't vouch for you,
-// so dev builds send the debug token you registered in the console instead.
-// Production builds never include it.
-if (import.meta.env.DEV) {
-  self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.VITE_APPCHECK_DEBUG_TOKEN
+// Firebase starts on the first chat message, so the store still loads
+// before .env.local is filled in.
+function getSupportModel(): TemplateGenerativeModel {
+  if (model) return model
+
+  const app = initializeApp(firebaseConfig)
+
+  // App Check proves requests come from this app, so nobody can reuse the config
+  // above to spend your Gemini quota. On localhost, reCAPTCHA can't vouch for you,
+  // so dev builds send the debug token you registered in the console instead.
+  // Production builds never include it.
+  if (import.meta.env.DEV) {
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.VITE_APPCHECK_DEBUG_TOKEN
+  }
+
+  initializeAppCheck(app, {
+    provider: new ReCaptchaEnterpriseProvider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
+    isTokenAutoRefreshEnabled: true,
+  })
+
+  // Agent Platform (the Vertex AI Gemini API) can read the catalogue straight from
+  // Cloud Storage. Its default location is `global`, where the newest models are served.
+  // Limited-use tokens are short-lived, which limits what a stolen one is worth.
+  const ai = getAI(app, { backend: new AgentPlatformBackend(), useLimitedUseAppCheckTokens: true })
+
+  // The prompt lives on the server as the `product-agent` template, so the
+  // instructions and the goodwill budget never reach the browser.
+  model = getTemplateGenerativeModel(ai)
+  return model
 }
-
-initializeAppCheck(app, {
-  provider: new ReCaptchaEnterpriseProvider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
-  isTokenAutoRefreshEnabled: true,
-})
-
-// Agent Platform (the Vertex AI Gemini API) can read the catalogue straight from
-// Cloud Storage. Its default location is `global`, where the newest models are served.
-// Limited-use tokens are short-lived, which limits what a stolen one is worth.
-const ai = getAI(app, { backend: new AgentPlatformBackend(), useLimitedUseAppCheckTokens: true })
-
-// The prompt lives on the server as the `product-agent` template, so the
-// instructions and the appeasement budget never reach the browser.
-const model = getTemplateGenerativeModel(ai)
 
 export async function askSupportAgent(
   query: string,
   productId?: string,
   history: ChatTurn[] = [],
 ): Promise<string> {
-  const result = await model.generateContent({
+  if (!firebaseConfig.apiKey) {
+    return "I'm not set up yet. Add your Firebase config to `.env.local`, then restart `npm run dev`."
+  }
+
+  const result = await getSupportModel().generateContent({
     templateId: 'product-agent',
     templateVariables: { query, productId, history },
   })
