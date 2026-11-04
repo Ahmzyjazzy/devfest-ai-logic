@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": ["query"],
+  "properties": {
+    "query": {
+      "type": "string",
+      "description": "The customer's message"
+    },
+    "productId": {
+      "type": "string",
+      "description": "The product the customer is looking at, if any"
+    },
+    "history": {
+      "type": "array",
+      "description": "The conversation so far, oldest first",
+      "items": {
+        "type": "object",
+        "required": ["role", "contents"],
+        "properties": {
+          "role": { "type": "string" },
+          "contents": { "type": "string" }
+        }
+      }
+    }
+  }
+}

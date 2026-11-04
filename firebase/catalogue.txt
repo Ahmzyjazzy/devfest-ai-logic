@@ -1,0 +1,66 @@
+# Qorelly Store catalogue
+
+Qorelly Store is an online shop in Ilorin, Nigeria.
+
+## Delivery
+- Ilorin: same day for orders placed before 2pm, ₦1,500.
+- Other cities in Nigeria: 2–4 working days, ₦3,500.
+- Free delivery on orders over ₦50,000.
+
+## Returns and refunds
+- Return unused items within 7 days of delivery for a full refund.
+- Wellness and health items can be returned only if the seal is unbroken.
+- Refunds go back to the original payment method within 3 working days.
+
+## Payment
+- Card, bank transfer or pay on delivery (Ilorin only).
+
+## Products
+
+### Adire two-piece set
+- ID: adire-two-piece
+- Category: Fashion
+- Price: ₦28,500
+- Summary: Hand-dyed indigo adire top and wrapper, made in Abeokuta.
+- Description: A relaxed two-piece in soft cotton, hand-dyed with indigo using the traditional resist method. Every set has small differences in pattern, so no two are the same.
+- Features: 100% cotton; Hand-dyed indigo; Sizes S to XXL; Hand wash cold, dry in shade
+
+### Kwara gift hamper
+- ID: gift-hamper
+- Category: Gifts
+- Price: ₦45,000
+- Summary: Three wrapped boxes of local treats, ready to give.
+- Description: Three gift boxes with locally made treats: kulikuli, honey from Kwara farms and a jar of spiced groundnut. Wrapped and ready to give, with a handwritten card.
+- Features: 3 wrapped boxes; Handwritten card included; Best before 3 months; Ships the same day in Ilorin
+
+### Shea butter and black soap kit
+- ID: shea-soap-kit
+- Category: Wellness
+- Price: ₦9,800
+- Summary: Raw shea butter and ose dudu black soap for everyday skin care.
+- Description: Unrefined shea butter from northern Nigeria with traditional ose dudu black soap. Gentle on dry skin and free from added fragrance.
+- Features: 250g raw shea butter; 200g black soap; No added fragrance; Sealed for freshness
+
+### Home first-aid kit
+- ID: first-aid-kit
+- Category: Health
+- Price: ₦12,500
+- Summary: The basics for small cuts, burns and headaches at home.
+- Description: A compact kit for the home or car with plasters, gauze, antiseptic, burn gel, a thermometer and paracetamol. Everything is labelled and in date for at least a year.
+- Features: 42 pieces; Digital thermometer; Fits a car glovebox; Contents in date for 12+ months
+
+### Fabric storage box
+- ID: storage-box
+- Category: Home
+- Price: ₦18,000
+- Summary: A sturdy fabric box that folds flat when you don't need it.
+- Description: A sturdy fabric box with a lid and side handles for clothes, toys or paperwork. Folds flat when not in use.
+- Features: Set of 3 sizes; Folds flat; Side handles; Wipe-clean lining
+
+### Floating wall shelf
+- ID: wall-shelf
+- Category: Home
+- Price: ₦22,500
+- Summary: A clean cream shelf with hidden brackets.
+- Description: A 60cm floating shelf in cream with hidden brackets and fixings included. Holds up to 10kg when fixed into a solid wall.
+- Features: 60cm wide; Holds up to 10kg; Hidden brackets; Fixings included
