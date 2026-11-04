@@ -34,6 +34,10 @@ Browser ──App Check──▶ Firebase AI Logic ──▶ Gemini on Agent Pla
 
 ---
 
+> **You are on `step-1-starter`.** The store runs, and the chat answers with a
+> placeholder. Set up Firebase with the checklist below, then switch to `main`
+> (or follow the codelab) to connect the chat.
+
 ## The codelab in two steps
 
 | Step | Branch | You will |
