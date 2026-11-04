@@ -1,14 +1,15 @@
-# Qorelly Store AI: a Firebase AI Logic codelab
+# DevFest Store: a Firebase AI Logic codelab
 
 **Build an AI-powered customer support agent using Firebase AI Logic.** This is the
 companion repo for the DevFest Ilorin 2026 workshop.
 
-Qorelly Store is a small demo shop in Ilorin. Its "Ask us" assistant answers
-questions about products, delivery and returns. It runs on a **server prompt
+DevFest Store is a pop-up gadget shop at DevFest Ilorin, powered by Qorelly. The
+**DevFest Salesperson** answers questions about products, booth pick-up, delivery
+and returns. It runs on a **server prompt
 template**, so the instructions and the confidential goodwill budget never reach
 the browser.
 
-![Qorelly Store with the support chat open](docs/screenshots/store.jpg)
+![DevFest Store with the DevFest Salesperson chat open](docs/screenshots/store.jpg)
 
 > Nothing here is for sale. The products, prices and policies are sample data in
 > `src/data/catalogue.json`.
@@ -29,7 +30,7 @@ Browser ──App Check──▶ Firebase AI Logic ──▶ Gemini on Agent Pla
 |---|---|
 | The one file the codelab edits | [`src/lib/firebase.ts`](src/lib/firebase.ts) |
 | Config (never committed) | `.env.local`, from [`.env.example`](.env.example) |
-| Prompt template, input schema, catalogue | [`firebase/`](firebase) |
+| Prompt template (with input schema), test input, catalogue, Storage rules | [`firebase/`](firebase) |
 | Store data | [`src/data/catalogue.json`](src/data/catalogue.json) |
 
 ---
@@ -66,20 +67,25 @@ replies with what to set up.
 
 ## Firebase setup checklist
 
-1. Create a Firebase project (for example `qorelly-store-ai`) and upgrade it to
+1. Create a Firebase project (for example `devfest-store-ai`) and upgrade it to
    **Blaze**.
 2. Register a web app and copy its config into `.env.local`.
 3. **AI Logic → Get started → Agent Platform Gemini API.** Don't choose the Gemini
    Developer API, because it can't read files from Cloud Storage.
-4. **Storage → Get started.** Use production mode and keep the rules as they are.
-   Upload [`firebase/catalogue.txt`](firebase/catalogue.txt).
+4. **Storage → Get started.** Use production mode. On the **Rules** tab, paste
+   [`firebase/storage.rules`](firebase/storage.rules) and publish. AI Logic checks
+   these rules before it reads a file, so without them the chat gets a 403. Then upload
+   [`firebase/catalogue.txt`](firebase/catalogue.txt), or run `npm run catalogue:upload`
+   (needs `gcloud auth login`).
 5. In Cloud console, open your bucket, go to **Permissions → Grant access**, and grant
    `service-<PROJECT_NUMBER>@gcp-sa-firebasevertexai.iam.gserviceaccount.com`
    the **Storage Object Viewer** role.
-6. **AI Logic → Prompt templates → Create.** Use the ID `product-agent` and the model
-   `gemini-3.1-flash-lite`. Paste in [`product-agent.prompt`](firebase/product-agent.prompt)
-   (replace `YOUR_PROJECT_ID`) and [`product-agent.schema.json`](firebase/product-agent.schema.json).
-   Test it, then save.
+6. **AI Logic → Prompt templates → Create.** Use the ID `product-agent`. From
+   [`product-agent.prompt`](firebase/product-agent.prompt), paste the part between
+   the `---` lines into **Configuration** (the model and input schema), and the rest
+   into **Prompt**. Replace `YOUR_PROJECT_ID`. To test it, choose **Agent Platform**
+   as the provider and use [`product-agent.test-input.json`](firebase/product-agent.test-input.json)
+   as the test input. Then save.
 7. **App Check:**
    - Create a reCAPTCHA key in Cloud console (Security → Fraud Defense).
    - Register the key under App Check → Apps.
@@ -99,6 +105,7 @@ replies with what to set up.
 | 400 "Referencing Google Cloud Storage files directly is not supported" | Using the Gemini Developer API (`GoogleAIBackend`) | Use `AgentPlatformBackend` |
 | 404 "Publisher model … was not found" | Model not served in the chosen location | Leave `AgentPlatformBackend()` on its default, `global` |
 | 403 `storage.objects.get` | The AI Logic service agent can't read the bucket | Checklist step 5. Allow 1–2 minutes for the grant to take effect |
+| 403 "The caller does not have permission" | Storage rules don't allow reading `catalogue.txt` | Publish [`firebase/storage.rules`](firebase/storage.rules) (checklist step 4) |
 
 ---
 
@@ -107,11 +114,12 @@ replies with what to set up.
 Edit `src/data/catalogue.json`, then:
 
 ```bash
-npm run catalogue   # rewrites firebase/catalogue.txt
+npm run catalogue          # rewrites firebase/catalogue.txt
+npm run catalogue:upload   # rewrites it and uploads it to your bucket (gcloud)
 ```
 
-Upload the new `catalogue.txt` to Storage, replacing the old one, so the
-assistant knows what the store shows.
+The assistant reads the uploaded `catalogue.txt`, so upload it again after every
+change, or it will describe products the store no longer shows.
 
 ---
 

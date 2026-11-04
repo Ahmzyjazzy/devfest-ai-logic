@@ -9,7 +9,7 @@ const list = (lines) => lines.map((line) => `- ${line}`).join('\n')
 
 const text = `# ${store.name} catalogue
 
-${store.name} is an online shop in ${store.city}, Nigeria.
+${store.name} is a pop-up gadget shop at DevFest ${store.city} 2026, powered by Qorelly. Orders can be picked up at the booth or delivered anywhere in Nigeria.
 
 ## Delivery
 ${list(store.delivery)}

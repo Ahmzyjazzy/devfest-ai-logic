@@ -1,81 +1,112 @@
 {
   "store": {
-    "name": "Qorelly Store",
+    "name": "DevFest Store",
     "city": "Ilorin",
+    "assistant": "DevFest Salesperson",
     "delivery": [
+      "Pick up free at the DevFest Store booth, same day.",
       "Ilorin: same day for orders placed before 2pm, ₦1,500.",
       "Other cities in Nigeria: 2–4 working days, ₦3,500.",
       "Free delivery on orders over ₦50,000."
     ],
     "returns": [
-      "Return unused items within 7 days of delivery for a full refund.",
-      "Wellness and health items can be returned only if the seal is unbroken.",
+      "Return unused items within 7 days for a full refund.",
+      "Opened earbuds can be returned only if they are faulty.",
+      "Every gadget has a 6-month warranty against faults.",
       "Refunds go back to the original payment method within 3 working days."
     ],
-    "payment": [
-      "Card, bank transfer or pay on delivery (Ilorin only)."
-    ]
+    "payment": ["Card, bank transfer, or pay at the booth."]
   },
   "products": [
     {
-      "id": "adire-two-piece",
-      "name": "Adire two-piece set",
-      "category": "Fashion",
-      "price": 28500,
-      "image": "/images/products/fashion.webp",
-      "summary": "Hand-dyed indigo adire top and wrapper, made in Abeokuta.",
-      "description": "A relaxed two-piece in soft cotton, hand-dyed with indigo using the traditional resist method. Every set has small differences in pattern, so no two are the same.",
-      "features": ["100% cotton", "Hand-dyed indigo", "Sizes S to XXL", "Hand wash cold, dry in shade"]
+      "id": "power-bank",
+      "name": "20,000mAh power bank",
+      "category": "Power",
+      "price": 24000,
+      "icon": "power-bank",
+      "summary": "Charges a phone four times over. Lasts the whole conference.",
+      "description": "A slim 20,000mAh power bank with 22.5W fast charging. Charges two devices at once, and the screen shows exactly how much charge is left.",
+      "features": ["20,000mAh", "22.5W fast charging", "USB-C and USB-A ports", "Charges 2 devices at once"]
     },
     {
-      "id": "gift-hamper",
-      "name": "Kwara gift hamper",
-      "category": "Gifts",
-      "price": 45000,
-      "image": "/images/products/parcels.webp",
-      "summary": "Three wrapped boxes of local treats, ready to give.",
-      "description": "Three gift boxes with locally made treats: kulikuli, honey from Kwara farms and a jar of spiced groundnut. Wrapped and ready to give, with a handwritten card.",
-      "features": ["3 wrapped boxes", "Handwritten card included", "Best before 3 months", "Ships the same day in Ilorin"]
+      "id": "wireless-earbuds",
+      "name": "Wireless earbuds",
+      "category": "Audio",
+      "price": 32000,
+      "icon": "earbuds",
+      "summary": "Noise-cancelling earbuds for calls, talks and the trip home.",
+      "description": "Wireless earbuds with active noise cancelling and a clear microphone for calls. 6 hours per charge, 24 hours with the case.",
+      "features": ["Active noise cancelling", "6h play, 24h with case", "USB-C charging", "Sweat resistant"]
     },
     {
-      "id": "shea-soap-kit",
-      "name": "Shea butter and black soap kit",
-      "category": "Wellness",
-      "price": 9800,
-      "image": "/images/products/spa.webp",
-      "summary": "Raw shea butter and ose dudu black soap for everyday skin care.",
-      "description": "Unrefined shea butter from northern Nigeria with traditional ose dudu black soap. Gentle on dry skin and free from added fragrance.",
-      "features": ["250g raw shea butter", "200g black soap", "No added fragrance", "Sealed for freshness"]
+      "id": "selfie-stick",
+      "name": "Selfie stick tripod",
+      "category": "Photo",
+      "price": 14500,
+      "icon": "selfie-stick",
+      "summary": "A selfie stick that turns into a tripod, with a Bluetooth remote.",
+      "description": "Extends to 1m for group photos and folds out into a steady tripod for videos. The Bluetooth remote clips off so you can shoot from a distance.",
+      "features": ["Extends to 1m", "Folds into a tripod", "Detachable Bluetooth remote", "Fits phones up to 6.9 inches"]
     },
     {
-      "id": "first-aid-kit",
-      "name": "Home first-aid kit",
-      "category": "Health",
-      "price": 12500,
-      "image": "/images/products/pharmacy.webp",
-      "summary": "The basics for small cuts, burns and headaches at home.",
-      "description": "A compact kit for the home or car with plasters, gauze, antiseptic, burn gel, a thermometer and paracetamol. Everything is labelled and in date for at least a year.",
-      "features": ["42 pieces", "Digital thermometer", "Fits a car glovebox", "Contents in date for 12+ months"]
+      "id": "ring-light",
+      "name": "Clip-on ring light",
+      "category": "Photo",
+      "price": 9500,
+      "icon": "ring-light",
+      "summary": "Clips onto your phone or laptop for brighter photos and calls.",
+      "description": "A rechargeable ring light that clips onto a phone or laptop. Three colour temperatures and ten brightness levels for selfies, streams and video calls.",
+      "features": ["3 colour temperatures", "10 brightness levels", "Rechargeable", "Clips onto phones and laptops"]
     },
     {
-      "id": "storage-box",
-      "name": "Fabric storage box",
-      "category": "Home",
-      "price": 18000,
-      "image": "/images/products/storage.webp",
-      "summary": "A sturdy fabric box that folds flat when you don't need it.",
-      "description": "A sturdy fabric box with a lid and side handles for clothes, toys or paperwork. Folds flat when not in use.",
-      "features": ["Set of 3 sizes", "Folds flat", "Side handles", "Wipe-clean lining"]
+      "id": "usb-c-hub",
+      "name": "6-in-1 USB-C hub",
+      "category": "Accessories",
+      "price": 28000,
+      "icon": "usb-hub",
+      "summary": "HDMI, USB and a card reader for laptops with only USB-C.",
+      "description": "Connect a projector, USB drives and SD cards to a USB-C laptop. Supports 4K HDMI and passes 100W charging through.",
+      "features": ["4K HDMI", "2× USB-A, 1× USB-C", "SD and microSD readers", "100W pass-through charging"]
     },
     {
-      "id": "wall-shelf",
-      "name": "Floating wall shelf",
-      "category": "Home",
-      "price": 22500,
-      "image": "/images/products/shelf.webp",
-      "summary": "A clean cream shelf with hidden brackets.",
-      "description": "A 60cm floating shelf in cream with hidden brackets and fixings included. Holds up to 10kg when fixed into a solid wall.",
-      "features": ["60cm wide", "Holds up to 10kg", "Hidden brackets", "Fixings included"]
+      "id": "bluetooth-speaker",
+      "name": "Mini Bluetooth speaker",
+      "category": "Audio",
+      "price": 18500,
+      "icon": "speaker",
+      "summary": "Small enough for a bag, loud enough for a room.",
+      "description": "A palm-sized Bluetooth speaker with 12 hours of play and a built-in microphone for calls. Splash resistant.",
+      "features": ["12h battery", "Bluetooth 5.3", "Built-in microphone", "Splash resistant"]
+    },
+    {
+      "id": "devfest-tshirt",
+      "name": "DevFest Ilorin 2026 T-shirt",
+      "category": "Merch",
+      "price": 15000,
+      "icon": "t-shirt",
+      "summary": "The official DevFest Ilorin 2026 T-shirt in soft cotton.",
+      "description": "Soft cotton T-shirt with the DevFest Ilorin 2026 print on the front. Unisex fit.",
+      "features": ["100% cotton", "Sizes S to XXL", "Unisex fit", "Limited run"]
+    },
+    {
+      "id": "sticker-pack",
+      "name": "Developer sticker pack",
+      "category": "Merch",
+      "price": 4000,
+      "icon": "stickers",
+      "summary": "30 vinyl stickers for your laptop.",
+      "description": "30 waterproof vinyl stickers: Firebase, Android, Flutter, Google Developer Groups and a few DevFest Ilorin specials.",
+      "features": ["30 stickers", "Waterproof vinyl", "Matte finish", "Peel off cleanly"]
+    },
+    {
+      "id": "water-bottle",
+      "name": "Insulated water bottle",
+      "category": "Merch",
+      "price": 8500,
+      "icon": "bottle",
+      "summary": "Keeps water cold for 24 hours through every session.",
+      "description": "A 750ml steel bottle that keeps drinks cold for 24 hours or hot for 12. Leak-proof lid with a carry loop.",
+      "features": ["750ml", "Cold 24h, hot 12h", "Leak-proof lid", "Fits most cup holders"]
     }
   ]
 }

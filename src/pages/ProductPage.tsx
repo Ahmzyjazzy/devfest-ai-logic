@@ -1,7 +1,8 @@
 import { ArrowLeftIcon } from '@solar-icons/react/outline'
 import { Link } from '../components/Link'
 import { askInChat } from '../lib/chatEvents'
-import { groundFor, store, type Product } from '../data/catalogue'
+import { ProductArt } from '../components/ProductArt'
+import { store, type Product } from '../data/catalogue'
 import { formatNaira } from '../lib/money'
 
 export function ProductPage({ product }: { product: Product }) {
@@ -13,9 +14,7 @@ export function ProductPage({ product }: { product: Product }) {
       </Link>
 
       <div className="mt-6 grid gap-8 md:grid-cols-2">
-        <div className={`aspect-square rounded-[18px] ${groundFor(product)}`}>
-          <img src={product.image} alt="" className="h-full w-full object-contain p-12" />
-        </div>
+        <ProductArt product={product} className="rounded-[18px]" />
 
         <div>
           <p className="text-sm font-medium text-neutral-500">{product.category}</p>

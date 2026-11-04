@@ -9,13 +9,13 @@ export function getProduct(id: string | null | undefined): Product | undefined {
   return products.find((product) => product.id === id)
 }
 
-// One pale brand ground per category, so each illustration sits on its own colour.
+// One pale brand ground per category, so each product sits on its own colour.
 const grounds: Record<string, string> = {
-  Fashion: 'bg-violet-pale',
-  Gifts: 'bg-coral-pale',
-  Wellness: 'bg-yellow-pale',
-  Health: 'bg-brand-pale',
-  Home: 'bg-neutral-100',
+  Power: 'bg-yellow-pale',
+  Audio: 'bg-brand-pale',
+  Photo: 'bg-violet-pale',
+  Accessories: 'bg-neutral-100',
+  Merch: 'bg-coral-pale',
 }
 
 export function groundFor(product: Product): string {

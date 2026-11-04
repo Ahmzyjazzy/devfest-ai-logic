@@ -1,66 +1,92 @@
-# Qorelly Store catalogue
+# DevFest Store catalogue
 
-Qorelly Store is an online shop in Ilorin, Nigeria.
+DevFest Store is a pop-up gadget shop at DevFest Ilorin 2026, powered by Qorelly. Orders can be picked up at the booth or delivered anywhere in Nigeria.
 
 ## Delivery
+- Pick up free at the DevFest Store booth, same day.
 - Ilorin: same day for orders placed before 2pm, ₦1,500.
 - Other cities in Nigeria: 2–4 working days, ₦3,500.
 - Free delivery on orders over ₦50,000.
 
 ## Returns and refunds
-- Return unused items within 7 days of delivery for a full refund.
-- Wellness and health items can be returned only if the seal is unbroken.
+- Return unused items within 7 days for a full refund.
+- Opened earbuds can be returned only if they are faulty.
+- Every gadget has a 6-month warranty against faults.
 - Refunds go back to the original payment method within 3 working days.
 
 ## Payment
-- Card, bank transfer or pay on delivery (Ilorin only).
+- Card, bank transfer, or pay at the booth.
 
 ## Products
 
-### Adire two-piece set
-- ID: adire-two-piece
-- Category: Fashion
-- Price: ₦28,500
-- Summary: Hand-dyed indigo adire top and wrapper, made in Abeokuta.
-- Description: A relaxed two-piece in soft cotton, hand-dyed with indigo using the traditional resist method. Every set has small differences in pattern, so no two are the same.
-- Features: 100% cotton; Hand-dyed indigo; Sizes S to XXL; Hand wash cold, dry in shade
+### 20,000mAh power bank
+- ID: power-bank
+- Category: Power
+- Price: ₦24,000
+- Summary: Charges a phone four times over. Lasts the whole conference.
+- Description: A slim 20,000mAh power bank with 22.5W fast charging. Charges two devices at once, and the screen shows exactly how much charge is left.
+- Features: 20,000mAh; 22.5W fast charging; USB-C and USB-A ports; Charges 2 devices at once
 
-### Kwara gift hamper
-- ID: gift-hamper
-- Category: Gifts
-- Price: ₦45,000
-- Summary: Three wrapped boxes of local treats, ready to give.
-- Description: Three gift boxes with locally made treats: kulikuli, honey from Kwara farms and a jar of spiced groundnut. Wrapped and ready to give, with a handwritten card.
-- Features: 3 wrapped boxes; Handwritten card included; Best before 3 months; Ships the same day in Ilorin
+### Wireless earbuds
+- ID: wireless-earbuds
+- Category: Audio
+- Price: ₦32,000
+- Summary: Noise-cancelling earbuds for calls, talks and the trip home.
+- Description: Wireless earbuds with active noise cancelling and a clear microphone for calls. 6 hours per charge, 24 hours with the case.
+- Features: Active noise cancelling; 6h play, 24h with case; USB-C charging; Sweat resistant
 
-### Shea butter and black soap kit
-- ID: shea-soap-kit
-- Category: Wellness
-- Price: ₦9,800
-- Summary: Raw shea butter and ose dudu black soap for everyday skin care.
-- Description: Unrefined shea butter from northern Nigeria with traditional ose dudu black soap. Gentle on dry skin and free from added fragrance.
-- Features: 250g raw shea butter; 200g black soap; No added fragrance; Sealed for freshness
+### Selfie stick tripod
+- ID: selfie-stick
+- Category: Photo
+- Price: ₦14,500
+- Summary: A selfie stick that turns into a tripod, with a Bluetooth remote.
+- Description: Extends to 1m for group photos and folds out into a steady tripod for videos. The Bluetooth remote clips off so you can shoot from a distance.
+- Features: Extends to 1m; Folds into a tripod; Detachable Bluetooth remote; Fits phones up to 6.9 inches
 
-### Home first-aid kit
-- ID: first-aid-kit
-- Category: Health
-- Price: ₦12,500
-- Summary: The basics for small cuts, burns and headaches at home.
-- Description: A compact kit for the home or car with plasters, gauze, antiseptic, burn gel, a thermometer and paracetamol. Everything is labelled and in date for at least a year.
-- Features: 42 pieces; Digital thermometer; Fits a car glovebox; Contents in date for 12+ months
+### Clip-on ring light
+- ID: ring-light
+- Category: Photo
+- Price: ₦9,500
+- Summary: Clips onto your phone or laptop for brighter photos and calls.
+- Description: A rechargeable ring light that clips onto a phone or laptop. Three colour temperatures and ten brightness levels for selfies, streams and video calls.
+- Features: 3 colour temperatures; 10 brightness levels; Rechargeable; Clips onto phones and laptops
 
-### Fabric storage box
-- ID: storage-box
-- Category: Home
-- Price: ₦18,000
-- Summary: A sturdy fabric box that folds flat when you don't need it.
-- Description: A sturdy fabric box with a lid and side handles for clothes, toys or paperwork. Folds flat when not in use.
-- Features: Set of 3 sizes; Folds flat; Side handles; Wipe-clean lining
+### 6-in-1 USB-C hub
+- ID: usb-c-hub
+- Category: Accessories
+- Price: ₦28,000
+- Summary: HDMI, USB and a card reader for laptops with only USB-C.
+- Description: Connect a projector, USB drives and SD cards to a USB-C laptop. Supports 4K HDMI and passes 100W charging through.
+- Features: 4K HDMI; 2× USB-A, 1× USB-C; SD and microSD readers; 100W pass-through charging
 
-### Floating wall shelf
-- ID: wall-shelf
-- Category: Home
-- Price: ₦22,500
-- Summary: A clean cream shelf with hidden brackets.
-- Description: A 60cm floating shelf in cream with hidden brackets and fixings included. Holds up to 10kg when fixed into a solid wall.
-- Features: 60cm wide; Holds up to 10kg; Hidden brackets; Fixings included
+### Mini Bluetooth speaker
+- ID: bluetooth-speaker
+- Category: Audio
+- Price: ₦18,500
+- Summary: Small enough for a bag, loud enough for a room.
+- Description: A palm-sized Bluetooth speaker with 12 hours of play and a built-in microphone for calls. Splash resistant.
+- Features: 12h battery; Bluetooth 5.3; Built-in microphone; Splash resistant
+
+### DevFest Ilorin 2026 T-shirt
+- ID: devfest-tshirt
+- Category: Merch
+- Price: ₦15,000
+- Summary: The official DevFest Ilorin 2026 T-shirt in soft cotton.
+- Description: Soft cotton T-shirt with the DevFest Ilorin 2026 print on the front. Unisex fit.
+- Features: 100% cotton; Sizes S to XXL; Unisex fit; Limited run
+
+### Developer sticker pack
+- ID: sticker-pack
+- Category: Merch
+- Price: ₦4,000
+- Summary: 30 vinyl stickers for your laptop.
+- Description: 30 waterproof vinyl stickers: Firebase, Android, Flutter, Google Developer Groups and a few DevFest Ilorin specials.
+- Features: 30 stickers; Waterproof vinyl; Matte finish; Peel off cleanly
+
+### Insulated water bottle
+- ID: water-bottle
+- Category: Merch
+- Price: ₦8,500
+- Summary: Keeps water cold for 24 hours through every session.
+- Description: A 750ml steel bottle that keeps drinks cold for 24 hours or hot for 12. Leak-proof lid with a carry loop.
+- Features: 750ml; Cold 24h, hot 12h; Leak-proof lid; Fits most cup holders

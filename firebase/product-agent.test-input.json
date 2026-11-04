@@ -1,0 +1,8 @@
+{
+  "query": "Will this keep my phone alive all day? I have ₦30,000 to spend.",
+  "productId": "power-bank",
+  "history": [
+    { "role": "user", "contents": "Hello" },
+    { "role": "model", "contents": "Hello. What can we help you with today?" }
+  ]
+}
