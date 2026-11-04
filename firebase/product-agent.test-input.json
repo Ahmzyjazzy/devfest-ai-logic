@@ -1,0 +1,8 @@
+{
+  "query": "Is the adire set good for a wedding? My budget is ₦30,000.",
+  "productId": "adire-two-piece",
+  "history": [
+    { "role": "user", "contents": "Hello" },
+    { "role": "model", "contents": "Hello. What can we help you with today?" }
+  ]
+}
