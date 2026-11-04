@@ -67,30 +67,45 @@ replies with what to set up.
 
 ## Firebase setup checklist
 
-1. Create a Firebase project (for example `devfest-store-ai`) and upgrade it to
-   **Blaze**.
-2. Register a web app and copy its config into `.env.local`.
-3. **AI Logic → Get started → Agent Platform Gemini API.** Don't choose the Gemini
-   Developer API, because it can't read files from Cloud Storage.
-4. **Storage → Get started.** Use production mode. On the **Rules** tab, paste
-   [`firebase/storage.rules`](firebase/storage.rules) and publish. AI Logic checks
-   these rules before it reads a file, so without them the chat gets a 403. Then upload
+Every step has a screenshot in [docs/codelab/SCREENSHOTS.md](docs/codelab/SCREENSHOTS.md).
+
+1. **Create a Firebase project** (for example `devfest-store-ai`). Turn Google Analytics
+   off. Upgrade to **Blaze**: pick your existing Cloud Billing account, or create one,
+   and set a small budget alert ($5 is plenty).
+2. **Register a web app** (Add app → Web, no Hosting) and copy its config into
+   `.env.local`.
+3. **AI Logic → Get started → Agent Platform Gemini API** → Enable APIs. Don't choose the
+   Gemini Developer API, because it can't read files from Cloud Storage. Enabling the
+   APIs also turns on App Check enforcement for AI Logic.
+4. **Storage → Get started.** Keep the no-cost location and use production mode. On the
+   **Rules** tab, paste [`firebase/storage.rules`](firebase/storage.rules) (only
+   `catalogue.txt` is readable) and publish. AI Logic checks these rules before it reads
+   a file, so without them the chat gets a 403. Upload
    [`firebase/catalogue.txt`](firebase/catalogue.txt), or run `npm run catalogue:upload`
    (needs `gcloud auth login`).
-5. In Cloud console, open your bucket, go to **Permissions → Grant access**, and grant
-   `service-<PROJECT_NUMBER>@gcp-sa-firebasevertexai.iam.gserviceaccount.com`
-   the **Storage Object Viewer** role.
-6. **AI Logic → Prompt templates → Create.** Use the ID `product-agent`. From
-   [`product-agent.prompt`](firebase/product-agent.prompt), paste the part between
-   the `---` lines into **Configuration** (the model and input schema), and the rest
-   into **Prompt**. Replace `YOUR_PROJECT_ID`. To test it, choose **Agent Platform**
-   as the provider and use [`product-agent.test-input.json`](firebase/product-agent.test-input.json)
-   as the test input. Then save.
+5. **Let AI Logic read the catalogue.** The AI Logic service agent is
+   `service-<PROJECT_NUMBER>@gcp-sa-firebasevertexai.iam.gserviceaccount.com`. The
+   project number is in Project settings, and the full email is listed under
+   IAM & Admin → IAM with **Include Google-provided role grants** ticked. In Cloud
+   console, open your bucket → **Permissions → Grant access** and give it
+   **Storage Object Viewer**. Allow 1–2 minutes for the grant to take effect.
+6. **AI Logic → Prompt templates → Create template → Blank.** Name `Product Agent`, ID
+   `product-agent`. From [`product-agent.prompt`](firebase/product-agent.prompt), paste
+   the part between the `---` lines into **Configuration** (the model and input schema),
+   and the rest into **Prompt**. Replace `YOUR_PROJECT_ID`. Paste
+   [`product-agent.test-input.json`](firebase/product-agent.test-input.json) as the test
+   input, **Save template**, then **Run prompt test**. A real answer proves steps 4–6.
 7. **App Check:**
-   - Create a reCAPTCHA key in Cloud console (Security → Fraud Defense).
-   - Register the key under App Check → Apps.
-   - Generate a debug token and add it to `.env.local`.
-8. `npm run dev` and ask the assistant something.
+   - Google Cloud console → Security → **Fraud Defense**. Enable the reCAPTCHA
+     Enterprise API if asked, then **Create key**: type Web, domains `localhost` and
+     `127.0.0.1`. Copy the key ID into `VITE_RECAPTCHA_SITE_KEY`. Remove the two local
+     domains and add your real domain before production.
+   - Firebase console → App Check → Apps → **Register** → **Fraud Defense**
+     (formerly reCAPTCHA Enterprise), not plain reCAPTCHA. Paste the key ID and save.
+   - ⋮ next to the app → **Manage debug tokens → Add debug token → Generate token**.
+     Copy it into `VITE_APPCHECK_DEBUG_TOKEN` straight away, because it is never shown
+     again. Treat it like a password.
+8. `npm run dev` and ask the DevFest Salesperson something.
 
 ---
 
