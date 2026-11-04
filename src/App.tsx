@@ -1,13 +1,19 @@
+import { Footer } from './components/Footer'
 import { Header } from './components/Header'
+import { getProduct } from './data/catalogue'
+import { useProductId } from './lib/route'
+import { Home } from './pages/Home'
+import { ProductPage } from './pages/ProductPage'
 
 function App() {
+  const product = getProduct(useProductId())
+
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="mx-auto max-w-6xl px-4 py-16">
-        <h1 className="text-3xl font-semibold text-ink">Qorelly Store</h1>
-      </main>
-    </>
+      <main className="flex-1">{product ? <ProductPage product={product} /> : <Home />}</main>
+      <Footer />
+    </div>
   )
 }
 
