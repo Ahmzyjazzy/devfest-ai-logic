@@ -7,12 +7,12 @@ import { askSupportAgent, type ChatTurn } from '../lib/firebase'
 import { useProductId } from '../lib/route'
 import { Link } from './Link'
 
-const STORAGE_KEY = 'qorelly-store-chat'
+const STORAGE_KEY = 'devfest-store-chat'
 
 const suggestions = [
-  'Which gift is good for my mum?',
-  'How much is delivery to Lagos?',
-  'My first-aid kit arrived damaged',
+  'Which power bank lasts all day?',
+  'Can I pick up at the booth?',
+  'My earbuds stopped charging',
 ]
 
 function loadTurns(): ChatTurn[] {
@@ -86,12 +86,12 @@ export function ChatWidget() {
     <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {open && (
         <section
-          aria-label="Chat with Qorelly Store"
+          aria-label="Chat with the DevFest Salesperson"
           className="flex h-[min(560px,calc(100vh-7rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white sm:w-96"
         >
           <header className="flex items-center justify-between border-b border-neutral-200 px-5 py-4">
             <div>
-              <h2 className="font-semibold text-ink">Ask Qorelly Store</h2>
+              <h2 className="font-semibold text-ink">DevFest Salesperson</h2>
               <p className="text-xs text-neutral-500">Products, delivery and returns</p>
             </div>
             <button
