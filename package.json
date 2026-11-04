@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "catalogue": "node scripts/build-catalogue.mjs"
+    "catalogue": "node scripts/build-catalogue.mjs",
+    "catalogue:upload": "npm run catalogue && sh scripts/upload-catalogue.sh"
   },
   "dependencies": {
     "@solar-icons/react": "^2.3.4",
