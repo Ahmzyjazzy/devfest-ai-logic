@@ -1,5 +1,6 @@
 import { ArrowLeftIcon } from '@solar-icons/react/outline'
 import { Link } from '../components/Link'
+import { askInChat } from '../lib/chatEvents'
 import { groundFor, store, type Product } from '../data/catalogue'
 import { formatNaira } from '../lib/money'
 
@@ -29,6 +30,14 @@ export function ProductPage({ product }: { product: Product }) {
               </li>
             ))}
           </ul>
+
+          <button
+            type="button"
+            onClick={() => askInChat(`I'm looking at the ${product.name}. `)}
+            className="mt-8 rounded-full bg-brand px-6 py-3 font-medium text-white hover:bg-brand-hover"
+          >
+            Ask about this item
+          </button>
 
           <div className="mt-8 rounded-[14px] bg-neutral-100 p-5 text-sm">
             <h2 className="font-medium text-ink">Delivery and returns</h2>

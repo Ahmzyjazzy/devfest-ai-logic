@@ -1,3 +1,4 @@
+import { ChatWidget } from './components/ChatWidget'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { getProduct } from './data/catalogue'
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <main className="flex-1">{product ? <ProductPage product={product} /> : <Home />}</main>
       <Footer />
+      <ChatWidget />
     </div>
   )
 }

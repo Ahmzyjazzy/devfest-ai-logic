@@ -20,3 +20,24 @@
 body {
   @apply bg-neutral-50 font-sans text-slate antialiased;
 }
+
+/* Agent replies are Markdown. */
+.chat-markdown {
+  & p + p,
+  & ul,
+  & ol {
+    @apply mt-2;
+  }
+  & ul {
+    @apply list-disc pl-5;
+  }
+  & ol {
+    @apply list-decimal pl-5;
+  }
+  & a {
+    @apply font-medium text-brand underline underline-offset-2;
+  }
+  & strong {
+    @apply font-semibold;
+  }
+}
