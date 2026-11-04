@@ -1,0 +1,12 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Firebase AI Logic checks these rules before a template reads a file.
+    // The catalogue is public product information, so anyone may read it.
+    // Nothing else in the bucket is readable or writable from the client.
+    match /catalogue.txt {
+      allow read;
+    }
+  }
+}
