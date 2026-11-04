@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app'
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'firebase/app-check'
 import { AgentPlatformBackend, getAI, getTemplateGenerativeModel } from 'firebase/ai'
 
 export type ChatTurn = { role: 'user' | 'model'; contents: string }
@@ -16,9 +17,23 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig)
 
+// App Check proves requests come from this app, so nobody can reuse the config
+// above to spend your Gemini quota. On localhost, reCAPTCHA can't vouch for you,
+// so dev builds send the debug token you registered in the console instead.
+// Production builds never include it.
+if (import.meta.env.DEV) {
+  self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.VITE_APPCHECK_DEBUG_TOKEN
+}
+
+initializeAppCheck(app, {
+  provider: new ReCaptchaEnterpriseProvider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
+  isTokenAutoRefreshEnabled: true,
+})
+
 // Agent Platform (the Vertex AI Gemini API) can read the catalogue straight from
 // Cloud Storage. Its default location is `global`, where the newest models are served.
-const ai = getAI(app, { backend: new AgentPlatformBackend() })
+// Limited-use tokens are short-lived, which limits what a stolen one is worth.
+const ai = getAI(app, { backend: new AgentPlatformBackend(), useLimitedUseAppCheckTokens: true })
 
 // The prompt lives on the server as the `product-agent` template, so the
 // instructions and the appeasement budget never reach the browser.
