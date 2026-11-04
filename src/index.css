@@ -1,8 +1,17 @@
 @import 'tailwindcss';
 
+/* Ciscela: the display serif. One headline per screen, weight 400 only. */
+@font-face {
+  font-family: 'Ciscela';
+  src: url('/fonts/Ciscela-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
 /* Qorelly brand palette: blue is the brand, slate is ink, yellow and coral are accents. */
 @theme {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-ciscela: 'Ciscela', Georgia, serif;
 
   --color-brand: #3651e9;
   --color-brand-hover: #2b41ba;
