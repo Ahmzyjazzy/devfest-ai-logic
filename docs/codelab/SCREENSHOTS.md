@@ -227,3 +227,9 @@ Captured on 4 November 2026 from a brand-new Firebase project (`devfest-store-ai
 **49.** npm run dev: the DevFest Salesperson answers from your catalogue, through App Check and your server template
 
 ![npm run dev: the DevFest Salesperson answers from your catalogue, through App Check and your server template](screenshots/49-store-live.png)
+
+## 11. Clean up
+
+**50.** Project settings > General, bottom of the page: Delete project. Delete the App Check debug token and remove localhost and 127.0.0.1 from the Fraud Defense key first. A deleted project keeps counting against your project quota for 30 days.
+
+![Delete project at the bottom of Project settings > General](screenshots/50-delete-project.png)
